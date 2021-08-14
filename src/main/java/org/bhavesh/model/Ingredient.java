@@ -25,6 +25,11 @@ public class Ingredient {
 		@ManyToOne
 		private Recipe reciepe;
 		
+		public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+			this.description=description;
+			this.amount=amount;
+			this.uom=uom;
+		}
 		public Long getId() {
 			return id;
 		}
@@ -55,6 +60,10 @@ public class Ingredient {
 		}
 		public void setReciepe(Recipe reciepe) {
 			this.reciepe = reciepe;
+		}
+		public Ingredient() {
+			super();
+			// TODO Auto-generated constructor stub
 		}
 		 
 }

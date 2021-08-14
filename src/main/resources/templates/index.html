@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recipe Index Page</title>
+</head>
+<body>
+    <h2 th:text="Welcome">Welcome</h2>
+	<div class="container">
+		<table border="1">
+			<tr>
+			<th>
+				<div class="col-md-4">
+					ID
+				</div>
+			</th>
+			<th>
+				<div class="col-md-4">
+					Cook_Time
+				</div>
+			</th>
+			<th>
+				<div class="col-md-4">
+					Description
+				</div>
+			</th>
+			<th>
+				<div class="col-md-4">
+					Difficulty
+				</div>
+			</th>
+			</tr>
+			<tr th:each="reciepe:${reciepes}">
+				<td>
+					<div th:text="${reciepe.getId()}"></div>
+				</td>
+				<td>
+					<div th:text="${reciepe.getCookTime()}"></div>
+				</td>
+				<td>
+					<div th:text="${reciepe.getDescription()}"></div>
+				</td>			
+				<td>
+					<div th:text="${reciepe.getDifficulty()}"></div>
+				</td>
+			</tr>
+    	</table>
+	</div>
+</body>
+</html>
