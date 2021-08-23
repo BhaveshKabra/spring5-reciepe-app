@@ -1,4 +1,4 @@
-package guru.springframework;
+package org.bhavesh;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

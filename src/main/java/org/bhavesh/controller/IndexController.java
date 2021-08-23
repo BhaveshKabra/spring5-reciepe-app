@@ -1,6 +1,6 @@
 package org.bhavesh.controller;
 
-import org.bhavesh.repository.RecipeRepoistory;
+import org.bhavesh.service.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-	private final RecipeRepoistory recipeRepoistory;
+	private final RecipeService recipeService;
 	
-	public IndexController(RecipeRepoistory recipeRepoistory) {
+	public IndexController(RecipeService recipeService) {
 		super();
-		this.recipeRepoistory = recipeRepoistory;
+		this.recipeService = recipeService;
 	}
 
 
@@ -21,7 +21,7 @@ public class IndexController {
 	public String getindex(Model model)
 	{
 		
-		model.addAttribute("reciepes",recipeRepoistory.findAll());
+		model.addAttribute("reciepes",recipeService.getRecipe());
 		return "index";
 	}
 }

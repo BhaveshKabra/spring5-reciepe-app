@@ -34,11 +34,60 @@ public class Dataloader implements ApplicationListener<ContextRefreshedEvent> {
 		this.categoryRepository=categoryRepository;
 	}
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		System.out.println("calling getReciepes");
+		System.out.println("calling getReciepes");		
+		uomRepoistory.saveAll(getUom());
+		categoryRepository.saveAll(getCategories());
 		recipeRepoistory.saveAll(getRecipes());
+		
     }
 
-    private List<Recipe> getRecipes() {
+    private List<Category> getCategories() {
+    	List<Category> categorylist=new ArrayList<>();
+    	Category american=new Category();
+		american.setDescription("American");
+		Category italian=new Category();
+		italian.setDescription("Italian");
+		Category mexican=new Category();
+		mexican.setDescription("Mexican");
+		Category fastfood=new Category();
+		fastfood.setDescription("Fast Food");
+		categorylist.add(american);
+		categorylist.add(mexican);
+		categorylist.add(fastfood);
+		categorylist.add(italian);
+		return categorylist;
+		
+	}
+	private List<UnitOfMeasure> getUom() {
+    	System.out.println("calling getUOM");
+		List<UnitOfMeasure> uomlist=new ArrayList<>();
+		UnitOfMeasure cup=new UnitOfMeasure();
+		cup.setDescription("Cup");
+		UnitOfMeasure teaspoon=new UnitOfMeasure();
+		teaspoon.setDescription("Teaspoon");
+		UnitOfMeasure tablespoon=new UnitOfMeasure();
+		tablespoon.setDescription("Tablespoon");
+		UnitOfMeasure pinch=new UnitOfMeasure();
+		pinch.setDescription("Pinch");
+		UnitOfMeasure ounce=new UnitOfMeasure();
+		ounce.setDescription("Ounce");
+		UnitOfMeasure each=new UnitOfMeasure();
+		each.setDescription("Each");
+		UnitOfMeasure dash=new UnitOfMeasure();
+		dash.setDescription("Dash");
+		UnitOfMeasure pint=new UnitOfMeasure();
+		pint.setDescription("Pint");
+		uomlist.add(each);
+		uomlist.add(ounce);
+		uomlist.add(tablespoon);
+		uomlist.add(teaspoon);
+		uomlist.add(pint);
+		uomlist.add(dash);
+		uomlist.add(pinch);
+		uomlist.add(cup);
+    	return uomlist;
+	}
+	private List<Recipe> getRecipes() {
     	System.out.println("calling getReciepes");
         List<Recipe> recipes = new ArrayList<>(2);
 
